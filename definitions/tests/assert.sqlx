@@ -1,0 +1,6 @@
+config {
+    type: "assertion",
+    name: "one_plus_two"
+}
+
+select 1 + 2 as result

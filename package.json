@@ -1,0 +1,8 @@
+{
+    "dependencies": {
+        "@dataform/core": "2.9.0"
+    },
+    "scripts": {
+        "dataform:output": "dataform compile --json > output.json"
+    }
+}

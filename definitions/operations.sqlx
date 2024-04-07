@@ -1,0 +1,8 @@
+config {
+    type: "operations",
+    name: "bunch_of_ops"
+}
+
+select pete as name;
+
+select 1 + '2' as result;

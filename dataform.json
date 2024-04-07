@@ -1,0 +1,8 @@
+{
+    "warehouse": "bigquery",
+    "defaultSchema": "dataform",
+    "assertionSchema": "dataform_assertions",
+    "defaultDatabase": "test",
+    "useRunCache": false,
+    "defaultLocation": "eu"
+}
