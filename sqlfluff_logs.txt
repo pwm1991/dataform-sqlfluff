@@ -1,0 +1,17 @@
+== [queries/operations.sql] FAIL
+L:   3 | P:  16 | RF04 | Keywords should not be used as identifiers.
+                       | [references.keywords]
+== [queries/table.sql] FAIL
+L:   3 | P:   1 | LT09 | Select targets should be on a new line unless there is
+                       | only one select target. [layout.select_targets]
+L:   4 | P:   1 | LT02 | Expected indent of 4 spaces. [layout.indent]
+L:   5 | P:   1 | LT02 | Line should not be indented. [layout.indent]
+L:   5 | P:   5 |  PRS | Line 5, Position 5: Found unparsable section: '7 * 2 as
+                       | fourteen'
+WARNING: Parsing errors found and dialect is set to 'bigquery'. Have you configured your dialect correctly?
+== [queries/view.sql] FAIL
+L:   7 | P:   1 | LT02 | Line should not be indented. [layout.indent]
+L:   7 | P:   5 |  PRS | Line 7, Position 5: Found unparsable section: '7 * 2 as
+                       | fourteen'
+WARNING: Parsing errors found and dialect is set to 'bigquery'. Have you configured your dialect correctly?
+All Finished!
