@@ -28,21 +28,19 @@ It uses `sql-formatter`, which is great, but the rules are hardcoded into `dataf
 
 Well...
 
-The main issue is the PROJECT_ID, which is in `dataform.json` anyway. When we move to DF 3.0 and release configs via Terraform, we can set `dataform.json` as some base values and have all the proper vars elsewhere. Many (digital squad) repos are already doing envs properly.
+We *want* to commit /queries in, because the benefits of doing so are:
+1. Comparing branch sql to main and diffing
+2. Being able to use the compilation elsewhere (Sonarcloud, other static analysers)
 
-The other neat thing is now that we have the compiled queries in the repo, chucking it into something like SonarCloud or any other tooling is pretty easy.
+The security downside is the PROJECT_ID, but that is in `dataform.json` anyway. When we move to DF 3.0 and release configs via Terraform, we can set `dataform.json` as some base values and override via TF..
 
 ### Will someone try to commit code after editing the queries directory?
 
-I guarantee it.
-
-We *want* to commit /queries in, because we want to be able to run diff-quality on the branch. This will help to enforce standards. But it will lead to some weirdness for newbies. Could push it into a specific branch.
+100%.
 
 ### Will it work?
 
-It works on this simple thing!
-
-I reckon it will struggle with more complicated JS insertions - mainly within my products (BDP etc) that make heavy use of JavaScript to insert/modify SQL. It will complain about indentations, so we'll have add sqfluff rules in these areas. Or just sort the indenting.
+Yeah its great. It will struggle on JS-inserted code by Dataform, because Dataform doesn't do any indentions. Easy to fix - we can just put a method into Storm that does lpad and sql-formatter in one, which isn't the worst idea in the world.
 
 So we could try it on:
 
@@ -52,7 +50,7 @@ So we could try it on:
 
 ### Actionable?
 
-Yup! We can chuck this into gh-actions nicely and use the diff-mode to enforce standards.
+Kind of. We will be assessing the *queries* directory rather than /definitions, which is why I've put a relative link at the top of each file, so there's a bit of gymnastics to do.
 
 TODO:
 
