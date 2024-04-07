@@ -5,4 +5,8 @@ config {
 
 select pete as name;
 
-select 1 + '2' as result;
+select 1 +
+
+'300'
+
+= 301 as result;
